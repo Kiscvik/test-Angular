@@ -13,6 +13,15 @@ export class AppComponent {
   age: number = 18;
 
   users: string[] = ['Pepe','Eduardo','Miguel'];
+
+  posts =[]
+
+  constructor( private dataService: DataService){
+    this.dataService.getData().subscribe(data => {
+      this.posts = data;
+    })
+  }
+
   sayHello(){
     alert('Si funciono!');
   }
@@ -32,10 +41,8 @@ export class AppComponent {
     return false;
   }
 
-  constructor( private dataService: DataService){
-    this.dataService.getData
-  }
+  
 
-  posts =[]
+  
   
 }
